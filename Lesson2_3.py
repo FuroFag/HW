@@ -3,10 +3,10 @@ length = len(my_list)
 
 index = 0
 while index < length:
-    print (my_list[index])
+    if my_list[index] < 0:
+        break
+    elif my_list[index] > 0:
+        print (my_list[index])
     index += 1
 
-    if my_list[index] == 0:
-        my_list.remove(0)
-    elif my_list[index] < 0:
-        break
+
