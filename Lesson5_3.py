@@ -22,43 +22,36 @@ class House:
             return self.nof == other.nof
 
     def __lt__(self, other):
-        if isinstance (other, int):
-            return self.nof < self.other
+        if isinstance (other, House):
+            return self.nof < other.nof
+        elif isinstance(other, int):
+            return self.nof < other
 
     def __le__(self, other):
-        if self.nof <= other.nof:
-            return True
-        else:
-            return False
+        return self.__eq__(other) or self.__lt__(other)
 
     def __gt__(self, other):
-        if self.nof > other.nof:
-            return True
-        else:
-            return False
+        return not self.__lt__(other)
 
     def __ge__(self, other):
-        if self.nof >= other.nof:
-            return True
-        else:
-            return False
+        return not self.__lt__(other)
 
     def __ne__(self, other):
-        if self.nof != other.nof:
-            return True
-        else:
-            return False
+        return not self.__eq__(other)
 
     def __add__(self, value:int):
         if isinstance (value, int):
             self.nof += value
             return self
+        if isinstance(value, House):
+            self.nof += other.nof
+        return self
 
-    def __radd__(self, value:int):
-        return  self.__add__
+    def __radd__(self, other:int):
+        return  self.__add__(other)
 
-    def __iadd__(self, value:int):
-        return self.__add__
+    def __iadd__(self, other:int):
+        return self.__add__(other)
 
 h1 = House('ЖК Эльбрус', 30)
 h2 = House('ЖК Приречный', 9)
