@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 
 # Загрузка данных с ценами на жилье 
-data = datasets.load_boston() 
+data = datasets.load_breast_cancer() 
 # Перемешивание данных 
 X, y = shuffle(data.data, data.target, random_state=7)
 # Разбивка данных на обучающий и тестовый наборы 
@@ -27,6 +27,6 @@ print("\n#### Оценка эффективности ####")
 print("Среднеквадратическая ошибка =", round(mse, 2)) 
 print("Explained variance score =", round(evs, 2))
 # Тестирование регрессора на тестовой точке данных 
-test_data = [3.7, 0, 18.4, 1, 0.87, 5.95, 91, 2.5052, 26, 666, 20.2, 351.34, 15.27] 
+test_data = [3.7, 0, 18.4, 1, 0.87, 5.95, 91, 2.5052, 26, 666, 20.2, 351.34, 15.27, 22, 13.11, 2, 3, 3, 3, 6, 1.12, 2.21, 0.92, 1.01, 11.11, 4.12, 5.32, 2, 0, 1] 
 print("\nPredicted price:", sv_regressor.predict([test_data])[0]) 
 
