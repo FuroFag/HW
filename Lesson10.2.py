@@ -10,7 +10,7 @@ def read_info(name):
             data = file.readline()
             all_data.append(data[0:-1])
 
-filenames = [f'{number}.txt' for number in range(1, 5)]
+filenames = [f'./file {number}.txt' for number in range(1, 5)]
 
 start = datetime.now()
 read_info(filenames[0])
