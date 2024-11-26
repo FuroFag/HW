@@ -1,5 +1,6 @@
 from datetime import datetime
 import multiprocessing
+from multiprocessing import Pool
 
 def read_info(name):
     all_data = []
