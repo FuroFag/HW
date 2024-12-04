@@ -15,10 +15,10 @@ def introspection_info(arg):
     attrs = [attr for attr in dir(arg)]
     methods = [method for method, link in inspect.getmembers(arg) if callable(link)]
     obj_module = [inspect.getmodule(arg)]
-    print (f'Тип объекта: {obj_type}')
-    print (f'атрибуты объекта: {attrs}')
-    print (f'методы объекта: {methods}')
-    print (f'Обект находится в модуле: {obj_module}')
+    print ({'Тип объекта': obj_type})
+    print ({'атрибуты объекта': attrs})
+    print ({'методы объекта': methods})
+    print ({'Обект находится в модуле': obj_module})
 
 test = introspection_info(testobj)
 
