@@ -45,7 +45,7 @@ def button_clicked_1():
     print('\nНормализованные данные набор_1 (L2-нормализация):')
     data_normalized_l2 = preprocessing.normalize(input_data_1, norm='l2')
     print(data_normalized_l2)
-    print('\nКодированные данные набор_1 (OrdinalEncoder):')
+    print('\nКодированные данные набор_3 (OrdinalEncoder):')
     enc = preprocessing.OrdinalEncoder()
     print(enc.fit(input_data_3))
     print(enc.categories_)
@@ -92,6 +92,17 @@ def button_clicked_4():
     print(enc.categories_)
     print(enc.transform(input_data_3))
 
+def button_clicked_5():
+    print('\nДискретизация данных набор_2:')
+    diskr = preprocessing.KBinsDiscretizer(n_bins=3, encode='ordinal', strategy='uniform')
+    diskr.fit(input_data_2)
+    input_data_2_diskr = diskr.transform(input_data_2)
+    print(input_data_2_diskr)
+
+def button_clicked_6():
+    print('\nБизаризация данных набор_2:')
+    input_data_2_binarized = preprocessing.Binarizer(threshold=2.1).transform(input_data_2) 
+    print(input_data_2_binarized)
         
 root=Tk()
 button1 = Button(root, text="Предобработка", command=button_clicked_1)
@@ -102,4 +113,8 @@ button3 = Button(root, text="Бинаризация", command=button_clicked_3)
 button3.pack()
 button1_2 = Button(root, text='Предобработка набора 2', command = button_clicked_4)
 button1_2.pack()
+button2_2 = Button(root, text = 'Дискретизация набора 2', command = button_clicked_5)
+button2_2.pack()
+button3_2 = Button(root, text = 'Бинаризация набора 2', command = button_clicked_6)
+button3_2.pack()
 root.mainloop()
