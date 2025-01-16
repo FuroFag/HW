@@ -1,4 +1,5 @@
 from unittest import TestCase
+import unittest
 
 class Runner:
     def __init__(self, name):
@@ -15,18 +16,23 @@ class Runner:
         return self.name
     
 class RunnerTest(TestCase):
+    is_frozen = False
+
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
         cls_obj = Runner('George Droyd')
         for i in range(10):
             cls_obj.walk()
         self.assertEqual(cls_obj.distance, 50)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run(self):
         runner = Runner('George Droyd')
         for i in range(10):
             runner.run()
         self.assertEqual(runner.distance, 100)
     
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def testchallenge(self):
         walker1 = Runner('fent_reactor')
         runner1 = Runner('Hyperborean George Droyd')
