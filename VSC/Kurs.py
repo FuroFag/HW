@@ -60,7 +60,7 @@ def button_clicked_2():
 
 def button_clicked_3():    
     print('\nБизаризация данных набор_1:')
-    input_data_1_binarized = preprocessing.Binarizer(threshold=2.1).transform(input_data_1) 
+    input_data_1_binarized = preprocessing.Binarizer(threshold=11.2).transform(input_data_1) 
     print(input_data_1_binarized)
 
 def button_clicked_4():
@@ -94,7 +94,7 @@ def button_clicked_4():
 
 def button_clicked_5():
     print('\nДискретизация данных набор_2:')
-    diskr = preprocessing.KBinsDiscretizer(n_bins=3, encode='ordinal', strategy='uniform')
+    diskr = preprocessing.KBinsDiscretizer(n_bins=8, encode='ordinal', strategy='uniform')
     diskr.fit(input_data_2)
     input_data_2_diskr = diskr.transform(input_data_2)
     print(input_data_2_diskr)
