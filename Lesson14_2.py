@@ -37,7 +37,6 @@ print(test2)
 cursor.execute('SELECT AVG(balance) FROM Users')
 test3 = cursor.fetchone()[0]
 print(test3)
-print(test2 / test1)
 
 connection.commit()
 connection.close()
